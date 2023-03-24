@@ -1,0 +1,32 @@
+{% extends 'multi_store/base.html' %}
+{% load static %}
+
+<body>
+{% block content %}
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Successful payment</span>
+                </h2>
+                <div class="row px-xl-5">
+                    <p>Your payment was successful! We will contact you to clarify the details.</p>
+                </div>
+
+                <div class="row px-xl-5">
+                    <p>Feel free to contact us and share your thoughts or tips on how to improve our service!</p>
+                </div>
+
+                <div class="row px-xl-5">
+                    <p>If you have any troubles with your equipment feel free to contact with our technical support via
+                        phone number +3 123 45 67 890 or via email support@mail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pt-2">
+        <a href="{% url 'contact:contact' %}">
+            <button class="btn btn-block btn-primary font-weight-bold my-3 py-3">Contact</button>
+        </a>
+    </div>
+{% endblock %}
+</body>

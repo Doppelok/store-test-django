@@ -1,0 +1,41 @@
+{% extends 'multi_store/base.html' %}
+{% load static %}
+
+{% block content %}
+        <!-- Breadcrumb Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-12">
+                <nav class="breadcrumb bg-light mb-30">
+                    <a class="breadcrumb-item text-dark" href="{% url 'test:index' %}">Home</a>
+                    <a class="breadcrumb-item text-dark" href="{% url 'test:shop_category' %}">Shop Categories</a>
+                    <span class="breadcrumb-item active">Shop Groups</span>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+    <!-- Categories Start -->
+    <div class="container-fluid pt-5">
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Groups</span>
+        </h2>
+        <div class="row px-xl-5 pb-3">
+            {% for group in object_list %}
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                    <a class="text-decoration-none" href="{% url 'test:shop_products' group_id=group.id%}">
+                        <div class="cat-item img-zoom d-flex align-items-center mb-4">
+                            <div class="overflow-hidden" style="width: 100px; height: 100px;">
+                                <img class="img-fluid" src="{% static 'img/cat-2.jpg' %}" alt="">
+                            </div>
+                            <div class="flex-fill pl-3">
+                                <h6>{{ group.name }}</h6>
+                                <small class="text-body">{{ group.description }}</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- Categories End -->
+{% endblock %}

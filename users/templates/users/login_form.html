@@ -1,0 +1,32 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/loger_form.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="form-container">
+        <p>Login</p>
+    <form class="form" method="post" action="{% url 'users:login' %}">
+        {% csrf_token %}
+
+        <label for="{{ form.username.id_for_label }}">Username</label>
+        {{ form.username }}
+
+        <label for="{{ form.password.id_for_label }}">Password</label>
+        {{ form.password }}
+
+        <button type="submit">Submit</button>
+
+    </form>
+        <br>
+        <a href="{% url 'users:registration' %}">Create Account</a>
+    </div>
+</body>
+</html>
